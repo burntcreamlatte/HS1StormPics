@@ -23,9 +23,6 @@
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
-                                <connections>
-                                    <segue destination="lQK-DE-rf2" kind="show" id="rib-Wx-Chf"/>
-                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -39,21 +36,37 @@
             </objects>
             <point key="canvasLocation" x="567" y="-54"/>
         </scene>
-        <!--View Controller-->
+        <!--Detail View Controller-->
         <scene sceneID="zgf-Ub-mVH">
             <objects>
-                <viewController id="lQK-DE-rf2" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Detail" id="lQK-DE-rf2" customClass="DetailViewController" customModule="HS1StormPics" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Yg0-TO-LXK">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="D7z-Lc-QqQ">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="D7z-Lc-QqQ" firstAttribute="centerY" secondItem="Yg0-TO-LXK" secondAttribute="centerY" id="0o3-tu-G1N"/>
+                            <constraint firstItem="D7z-Lc-QqQ" firstAttribute="leading" secondItem="Q8J-Vj-rTh" secondAttribute="leading" id="3ym-Ue-a2D"/>
+                            <constraint firstItem="D7z-Lc-QqQ" firstAttribute="centerX" secondItem="Yg0-TO-LXK" secondAttribute="centerX" id="IFz-uR-ZVA"/>
+                            <constraint firstAttribute="bottom" secondItem="D7z-Lc-QqQ" secondAttribute="bottom" id="WO1-VJ-rJP"/>
+                            <constraint firstItem="D7z-Lc-QqQ" firstAttribute="top" secondItem="Yg0-TO-LXK" secondAttribute="top" id="cjj-k7-K7Z"/>
+                            <constraint firstItem="D7z-Lc-QqQ" firstAttribute="trailing" secondItem="Q8J-Vj-rTh" secondAttribute="trailing" id="feE-wQ-njm"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="Q8J-Vj-rTh"/>
                     </view>
                     <navigationItem key="navigationItem" id="G4g-bq-Iqf"/>
+                    <connections>
+                        <outlet property="picImageView" destination="D7z-Lc-QqQ" id="2sG-07-kx7"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ew1-HD-qOc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1500" y="-56"/>
+            <point key="canvasLocation" x="1500.0000000000002" y="-56.25"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="xdN-mg-54c">
