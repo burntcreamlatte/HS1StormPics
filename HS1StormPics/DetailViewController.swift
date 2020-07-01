@@ -17,12 +17,35 @@ class DetailViewController: UIViewController {
         super.viewDidLoad()
         self.navigationController?.navigationBar.backgroundColor = .clear
         
+        title = selectedImage
+        navigationItem.largeTitleDisplayMode = .never
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(shareTapped))
+        
         if let imageToLoad = selectedImage {
             picImageView.image = UIImage(named: imageToLoad)
         }
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.hidesBarsOnTap = true
     }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        navigationController?.hidesBarsOnTap = false
+    }
+    
+    @objc func shareTapped() {
+        guard let image = picImageView.image?.jpegData(compressionQuality: 1.0) else { print("No image found."); return }
+        
+        let vc = UIActivityViewController(activityItems: [image], applicationActivities: [])
+        vc.popoverPresentationController?.barButtonItem = navigationItem.rightBarButtonItem
+        present(vc, animated: true)
+    }
+    
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//
+//    }
 }
